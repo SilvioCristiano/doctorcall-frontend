@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, IonicPage, MenuController } from 'ionic-angular';
 
 
+
 @IonicPage()
 @Component({
   selector: 'page-home',
@@ -9,7 +10,9 @@ import { NavController, IonicPage, MenuController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public menu: MenuController) {
+  constructor(
+    public navCtrl: NavController, 
+    public menu: MenuController) {
 
   }
   ionViewWillEnter() {
