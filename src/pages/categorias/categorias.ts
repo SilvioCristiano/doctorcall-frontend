@@ -17,8 +17,10 @@ import { API_CONFIG } from '../../config/api.config';
   templateUrl: 'categorias.html',
 })
 export class CategoriasPage {
+
   bucketUrl: string = API_CONFIG.bucketBaseUrl;
-  items : CategoriaDTO[];
+
+  items: CategoriaDTO[];
 
   constructor(
     public navCtrl: NavController, 
@@ -33,8 +35,8 @@ export class CategoriasPage {
       },
       error => {});
   }
+
   showProdutos(categoria_id : string) {
     this.navCtrl.push('ProdutosPage', {categoria_id: categoria_id});    
   }
-
 }

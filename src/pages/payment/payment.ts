@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the PaymentPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { PedidoDTO } from '../../models/pedido.dto';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @IonicPage()
 @Component({
@@ -15,11 +10,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PaymentPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  pedido: PedidoDTO;
+
+  parcelas: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  formGroup: FormGroup;
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public formBuilder: FormBuilder) {
+
+    this.pedido = this.navParams.get('pedido');
+
+    this.formGroup = this.formBuilder.group({
+      numeroDeParcelas: [1, Validators.required],
+      "@type": ["pagamentoComCartao", Validators.required]
+    });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PaymentPage');
+  nextPage() {
+    this.pedido.pagamento = this.formGroup.value;
+    this.navCtrl.setRoot('OrderConfirmationPage', {pedido: this.pedido});
   }
-
 }

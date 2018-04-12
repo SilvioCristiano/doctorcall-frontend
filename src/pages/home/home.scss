@@ -1,18 +1,14 @@
 page-home {
 
-    h3{
+    h3 {
         text-align: center;
-        color:red;
-        font: bold
     }
-    img{
-        height: 30vh;
-        width: auto;
+
+    img {
+        width: 200px;
+        align-self: center;
         margin: auto;
         display: block;
-      }
-    form{
-        font: bold;
-        color: red
+        padding: 10px;
     }
 }
